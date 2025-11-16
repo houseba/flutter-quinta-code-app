@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "118517688599",
+    "project_id": "quintadev-6d751",
+    "storage_bucket": "quintadev-6d751.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118517688599:android:e7ad8153e9f88bf6fc6f52",
+        "android_client_info": {
+          "package_name": "cl.houseba.quinta_code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118517688599-a5s9c0nf298kjnoieru4h6cuh659hppa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.houseba.quinta_code",
+            "certificate_hash": "85de65d8fa2cce49b8e9d1ee4d5b70129737830b"
+          }
+        },
+        {
+          "client_id": "118517688599-oidd1tgj3hq3si3oof0m20s19themv75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCBTvpczgC0UMeLEkwCYdxwb5GUxTwbnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118517688599-oidd1tgj3hq3si3oof0m20s19themv75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
