@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:quinta_code/constants.dart';
-import 'package:quinta_code/pages/agregar_evento_page.dart';
+import 'package:quinta_code/pages/views/agregar_evento_page.dart';
 import 'package:quinta_code/services/fs_service.dart';
 import 'package:intl/intl.dart';
 
@@ -142,7 +142,6 @@ class _HomePageState extends State<HomePage> {
                                     style: TextStyle(
                                       color: Constants.text_color, fontSize: 20),
                                   ),
-                                  SizedBox(height: 10),
                                   Text(
                                     'Fecha y hora: $fechaStr',
                                     style: TextStyle(
@@ -162,7 +161,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
+        heroTag: UniqueKey(), // clave única para evitar conflictos de Hero
         onPressed: () {
           Navigator.push(context, 
             MaterialPageRoute(builder: (context) => AgregarEventoPage())

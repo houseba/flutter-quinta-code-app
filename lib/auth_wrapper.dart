@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quinta_code/pages/login/login_page.dart';
-import 'package:quinta_code/pages/home_page.dart';
+import 'package:quinta_code/pages/base_page.dart';
 class AuthWrapper extends StatelessWidget {
   const AuthWrapper({super.key});
 
@@ -16,7 +16,7 @@ class AuthWrapper extends StatelessWidget {
           );
         }
         if (snapshot.hasData) {
-          return HomePage();
+          return BasePage();
         }
         return LoginPage();
       },

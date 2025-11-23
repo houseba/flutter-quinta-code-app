@@ -51,6 +51,25 @@ class FsService {
       'createdAt': FieldValue.serverTimestamp(),
       'updatedAt': FieldValue.serverTimestamp(),
       'categoriaId': categoriaId,
+      'creadorEmail': user?.email ?? 'Anónimo',
     });
+  }
+
+  // Devuelve solo los eventos creados por el usuario según su email
+  Stream<QuerySnapshot<Map<String, dynamic>>> misEventos(String? email) {
+    if (email == null) {
+      // Si no hay email, devuelve stream vacío
+      return Stream.empty().cast<QuerySnapshot<Map<String, dynamic>>>();
+    }
+    return _db
+        .collection('Eventos')
+        .where('creadorEmail', isEqualTo: email)
+        .snapshots()
+        .cast<QuerySnapshot<Map<String, dynamic>>>();
+  }
+
+  // Borra un evento por su ID
+  Future<void> deleteEvento(String docId) {
+    return _db.collection('Eventos').doc(docId).delete();
   }
 }
