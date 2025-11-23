@@ -31,4 +31,14 @@ class AppUtils {
     );
     return resultado ?? false;
   }
+
+  static mostrarSnackbar(BuildContext context, String mensaje) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(mensaje),
+        duration: Duration(seconds: 3),
+        backgroundColor: Constants.accent_color,
+      ),
+    );
+  }
 }

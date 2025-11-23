@@ -39,6 +39,7 @@ class FsService {
     String lugar,
     DateTime fechaHora,
     String categoriaId,
+    String area,
   ) {
     final user = FirebaseAuth.instance.currentUser;
     // Prioriza el nombre de la cuenta Google, luego el correo electrónico
@@ -47,6 +48,7 @@ class FsService {
       'titulo': titulo,
       'autor': autorNombre,
       'lugar': lugar,
+      'area': area,
       'fechaHora': fechaHora,
       'createdAt': FieldValue.serverTimestamp(),
       'updatedAt': FieldValue.serverTimestamp(),
@@ -69,7 +71,7 @@ class FsService {
   }
 
   // Borra un evento por su ID
-  Future<void> deleteEvento(String docId) {
+  Future<void> eliminarEvento(String docId) {
     return _db.collection('Eventos').doc(docId).delete();
   }
 }

@@ -6,6 +6,7 @@ import 'package:quinta_code/constants.dart';
 import 'package:quinta_code/services/fs_service.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:quinta_code/utils/app_utils.dart';
 
 class AgregarEventoPage extends StatefulWidget {
   const AgregarEventoPage({super.key});
@@ -44,9 +45,12 @@ class _AgregarEventoPageState extends State<AgregarEventoPage> {
     return null;
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: IconButton(
@@ -215,6 +219,7 @@ class _AgregarEventoPageState extends State<AgregarEventoPage> {
                           final lugar = lugarController.text.trim();
                           final fechaHoraStr = fechaHoraController.text.trim();
                           final categoriaId = categoriaSeleccionada ?? 'charla';
+                          final area = areaController.text.trim();
                           
                           // Usar la función de parseo de fecha
                           final fechaHora = _parseFechaHora(fechaHoraStr);
@@ -225,7 +230,9 @@ class _AgregarEventoPageState extends State<AgregarEventoPage> {
                               lugar,
                               fechaHora,
                               categoriaId,
+                              area
                             ).then((_) {
+                              AppUtils.mostrarSnackbar(_scaffoldKey.currentContext!, 'Evento agregado correctamente');
                               Navigator.pop(context);
                             });
                           }

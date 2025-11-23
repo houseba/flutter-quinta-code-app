@@ -15,9 +15,12 @@ class MisEventosPage extends StatefulWidget {
 }
 
 class _MisEventosPageState extends State<MisEventosPage> {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         actions: [
@@ -149,7 +152,15 @@ class _MisEventosPageState extends State<MisEventosPage> {
                                       '¿Estás seguro de que deseas eliminar este evento?',
                                     );
                                     if (confirmado) {
-                                      // Lógica para eliminar el evento
+                                      await FsService().eliminarEvento(doc.id).then(
+                                        (eventoBorrado) {
+                                          // ignore: use_build_context_synchronously
+                                          AppUtils.mostrarSnackbar(_scaffoldKey.currentContext!, 'Evento eliminado correctamente');
+                                          setState(() {
+                                            
+                                          });
+                                        },
+                                      );
                                     }
                                   },
                                   child: Text('Eliminar evento', style: TextStyle(color: Constants.accent_color)),
