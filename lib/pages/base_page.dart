@@ -33,9 +33,9 @@ class _BasePageState extends State<BasePage> {
           ),
           iconTheme: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
             if (states.contains(WidgetState.selected)) {
-              return IconThemeData(color: Colors.white, size: 24);
+              return IconThemeData(color: Colors.white, size: 25);
             }
-            return IconThemeData(color: Colors.grey, size: 24);
+            return IconThemeData(color: Colors.grey, size: 25);
           }),
         ),
         child: NavigationBar(
